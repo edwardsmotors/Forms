@@ -1,0 +1,10 @@
+{
+  "routes": [
+    {"route":"/staff.html","allowedRoles":["authenticated"]},
+    {"route":"/api/staff/*","allowedRoles":["authenticated"]},
+    {"route":"/api/enquiries","methods":["POST"],"allowedRoles":["anonymous"]}
+  ],
+  "responseOverrides":{"401":{"redirect":"/.auth/login/aad?post_login_redirect_uri=.referrer","statusCode":302}},
+  "platform":{"apiRuntime":"node:20"},
+  "globalHeaders":{"X-Content-Type-Options":"nosniff","Referrer-Policy":"strict-origin-when-cross-origin","Content-Security-Policy":"default-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"}
+}
